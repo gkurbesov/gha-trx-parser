@@ -1,0 +1,11 @@
+name: 'Reference checker'
+inputs:
+  file_name:
+    description: File nape
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Check references in projects
+      shell: pwsh
+      run: ${{ github.action_path }}/parser.ps1 -FileName ${{ inputs.file_name }}
